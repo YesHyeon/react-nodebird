@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const AppLayout = ({ children }) => {
   return (
@@ -9,7 +10,7 @@ const AppLayout = ({ children }) => {
   );
 };
 
-AppLayout.propTypes = {
+AppLayout.PropTypes = {
   children: PropTypes.node.isRequired,
 };
 
