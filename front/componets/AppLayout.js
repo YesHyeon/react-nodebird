@@ -37,12 +37,16 @@ const AppLayout = ({ children }) => {
       </Menu>
       <Row>
         <Col xs={24} md={6}>
-          {isLoggedIn ? <UserProfile /> : <LoginForm />}
+          {isLoggedIn ? (
+            <UserProfile setIsLoggedIn={setIsLoggedIn} />
+          ) : (
+            <LoginForm setIsLoggedIn={setIsLoggedIn} />
+          )}
         </Col>
-        <Col xs={24} md={6}>
-          중간 메뉴
+        <Col xs={24} md={16}>
+          {children}
         </Col>
-        <Col xs={24} md={6}>
+        <Col xs={24} md={2}>
           <a href="www.naver.com" target="_blank" rel="noreferrer noopener">
             NAVER
           </a>

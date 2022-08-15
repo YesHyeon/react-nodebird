@@ -7,7 +7,12 @@ const ButtonWrapper = styled.div`
   margin-top: 10px;
 `;
 
-const LoginForm = () => {
+const FormWrapper = styled(Form)`
+  padding-top: 10px;
+  padding-left: 20px;
+`;
+
+const LoginForm = ({ setIsLoggedIn }) => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
 
@@ -19,8 +24,16 @@ const LoginForm = () => {
     setPassword(e.target.value);
   }, []);
 
+  const onSubmitForm = useCallback(
+    (e) => {
+      console.log("zz");
+      setIsLoggedIn(true);
+    },
+    [id, password]
+  );
+
   return (
-    <Form>
+    <FormWrapper onFinish={onSubmitForm}>
       <div>
         <label htmlFor="user-id">아이디</label>
         <br />
@@ -39,7 +52,9 @@ const LoginForm = () => {
       </div>
       <ButtonWrapper>
         <div>
-          <Button type="primary" htmlFor="submit" loading={false}></Button>
+          <Button type="primary" htmlType="submit" loading={false}>
+            로그인
+          </Button>
           <Link href="/signup">
             <a>
               <Button>회원가입</Button>
@@ -47,7 +62,7 @@ const LoginForm = () => {
           </Link>
         </div>
       </ButtonWrapper>
-    </Form>
+    </FormWrapper>
   );
 };
 export default LoginForm;
