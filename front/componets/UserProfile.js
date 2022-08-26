@@ -36,4 +36,8 @@ const UserProfile = ({ setIsLoggedIn }) => {
   );
 };
 
+UserProfile.PropTypes = {
+  setIsLoggedIn: PropTypes.func.isRequired,
+};
+
 export default UserProfile;
